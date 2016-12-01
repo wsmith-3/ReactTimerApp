@@ -4,7 +4,7 @@
   "description": "Simple react timer app",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
+    "start": "webpack",
     "build": "webpack --progress --colors -d --watch",
     "dev": "webpack-dev-server --content-base ./public --inline",
     "test": "echo \"Error: no test specified\" && exit 1"
