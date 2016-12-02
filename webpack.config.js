@@ -2,6 +2,7 @@
 
 var webpack = require('webpack');
 var NyanProgressPlugin = require('nyan-progress-webpack-plugin');
+var path = require('path');
 
 module.exports = {
   entry: [
@@ -33,7 +34,8 @@ module.exports = {
       applicationStyles: 'app/styles/app.scss',
       Clock: 'app/components/Clock.jsx',
       CountdownForm: 'app/components/CountdownForm.jsx',
-      Controls: 'app/components/Controls.jsx'
+      Controls: 'app/components/Controls.jsx',
+      Timer: 'app/components/Timer.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -47,6 +49,11 @@ module.exports = {
         presets: ['es2015', 'react', 'stage-0']
       }
     }]
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+    ]
   },
   devtool: 'inline-source-map',
   devServer: {
