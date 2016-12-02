@@ -26344,25 +26344,25 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Clock = __webpack_require__(/*! Clock */ 239);
+	
+	var _Clock2 = _interopRequireDefault(_Clock);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Timer = _react2.default.createClass({
-	  displayName: 'Timer',
+	var Countdown = _react2.default.createClass({
+	  displayName: 'Countdown',
 	
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'The Countdown'
-	      )
+	      _react2.default.createElement(_Clock2.default, { totalSeconds: 129 })
 	    );
 	  }
 	});
 	
-	module.exports = Timer;
+	module.exports = Countdown;
 
 /***/ },
 /* 233 */
@@ -26765,10 +26765,62 @@
 	
 	
 	// module
-	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n", ""]);
+	exports.push([module.id, ".top-bar, .top-bar ul {\n  background-color: #333333; }\n\n.top-bar .menu-text {\n  color: white; }\n\n.top-bar .menu > .menu-text > a {\n  display: inline;\n  padding: 0; }\n\n.top-bar .active-link {\n  font-weight: bold; }\n\n.clock {\n  align-items: center;\n  background-color: #b5d0e2;\n  border: 2px solid #2099eb;\n  border-radius: 50%;\n  display: flex;\n  height: 14rem;\n  justify-content: center;\n  margin: 4rem auto;\n  width: 14rem; }\n\n.clock-text {\n  color: white;\n  font-size: 2.25rem;\n  font-weight: 300; }\n", ""]);
 	
 	// exports
 
+
+/***/ },
+/* 239 */
+/*!**********************************!*\
+  !*** ./app/components/Clock.jsx ***!
+  \**********************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _react = __webpack_require__(/*! react */ 8);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Clock = _react2.default.createClass({
+	  displayName: 'Clock',
+	
+	  getDefaultProps: function getDefaultProps() {
+	    totalSeconds: 0;
+	  },
+	  propTypes: {
+	    totalSeconds: _react2.default.PropTypes.number
+	  },
+	  formatSeconds: function formatSeconds(totalSeconds) {
+	    var seconds = totalSeconds % 60;
+	    var minutes = Math.floor(totalSeconds / 60);
+	    if (seconds < 10) {
+	      seconds = '0' + seconds;
+	    }
+	    if (minutes < 10) {
+	      minutes = '0' + minutes;
+	    }
+	    return minutes + ':' + seconds;
+	  },
+	  render: function render() {
+	    var totalSeconds = this.props.totalSeconds;
+	
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'clock' },
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'clock-text' },
+	        this.formatSeconds(totalSeconds)
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Clock;
 
 /***/ }
 /******/ ]);

@@ -1,13 +1,14 @@
 import React from 'react';
+import Clock from 'Clock';
 
-var Timer = React.createClass({
+var Countdown = React.createClass({
   render: function() {
     return(
       <div>
-        <p>The Countdown</p>
+        <Clock totalSeconds={129}/>
       </div>
     );
   }
 });
 
-module.exports =  Timer;
+module.exports =  Countdown;
