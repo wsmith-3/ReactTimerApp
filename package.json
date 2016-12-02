@@ -4,7 +4,7 @@
   "description": "Simple react timer app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack",
+    "start": "node server.js",
     "build": "webpack --progress --colors -d --watch",
     "dev": "webpack-dev-server --content-base ./public --inline",
     "test": "karma start"
